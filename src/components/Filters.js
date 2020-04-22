@@ -7,7 +7,7 @@ const Filters = (props) => {
     }
     return (
         <form>
-             <label htmlFor="text-search">Busca tu personaje favorito</label>
+             <label htmlFor="text-search">Busca tu favorito</label>
             <input
              type="text" 
              className="inputsearch" 
