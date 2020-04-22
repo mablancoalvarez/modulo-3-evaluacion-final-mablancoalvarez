@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CharacterDetails = (props) =>{
 
@@ -12,7 +13,11 @@ const CharacterDetails = (props) =>{
             <p>{props.charactObj.origin.name}</p>
             <p>{props.charactObj.episode.length}</p>
             </div> 
+            <Link to='/'>
+        <button type="button">Volver</button>
+        </Link>
         </div>
+       
     )
 }
 
