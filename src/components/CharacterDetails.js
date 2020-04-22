@@ -2,6 +2,7 @@ import React from 'react';
 
 const CharacterDetails = (props) =>{
 
+    console.log(props)
     return (
         <div className="character-details">
             <img src={props.charactObj.image} alt={props.charactObj.name}/>
@@ -10,7 +11,7 @@ const CharacterDetails = (props) =>{
             <h3>{props.charactObj.species}</h3>
             <p>{props.charactObj.origin.name}</p>
             <p>{props.charactObj.episode.length}</p>
-            </div>
+            </div> 
         </div>
     )
 }

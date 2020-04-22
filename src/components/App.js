@@ -34,12 +34,12 @@ class App extends React.Component {
   }
 
   renderCharacterDetail(props){
-    console.log(props.match.params.id)
+    console.log(props)
     const routeId = props.match.params.id;
     const characters = this.state.data;
     for (let character of characters ){
-      if(character.id === routeId){
-        return <CharacterDetails charactObj={character} />
+      if(character.id === parseInt(routeId)){
+    return <CharacterDetails charactObj={character} />
       }
     }
 
@@ -48,7 +48,7 @@ class App extends React.Component {
 
 
   render() {
-    console.log(this.state.data)
+ 
     return (
       <div className="App">
         <Switch>
@@ -62,7 +62,7 @@ class App extends React.Component {
 
         />
         </Route>
-        <Route path="character/id:" render={this.renderCharacterDetail}/>
+        <Route path="/character/:id" render={this.renderCharacterDetail}/>
         </Switch>
       </div>
     );

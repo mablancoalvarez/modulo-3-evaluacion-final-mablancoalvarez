@@ -24,6 +24,4 @@ console.log(props)
     )
 }
 
-
-
 export default CharacterList;
