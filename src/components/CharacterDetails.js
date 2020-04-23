@@ -11,7 +11,7 @@ const CharacterDetails = (props) => {
                 <h2>{props.charactObj.name}</h2>
                 <h3>{props.charactObj.species}</h3>
                 <p>{props.charactObj.origin.name}</p>
-                <p>Numbers of Episodes: {props.charactObj.episode.length}</p>
+                <p> Episode: {props.charactObj.episode.length}</p>
             </div>
             <Link to='/'>
                 <button type="button">Volver</button>
