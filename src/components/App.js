@@ -6,6 +6,8 @@ import Filters from './Filters';
 import CharacterDetails from './CharacterDetails';
 import { Route, Switch } from 'react-router-dom';
 import ErrorMessage from './ErrorMessage';
+import Header from './Header';
+// import logo from '../images/logo.png';
 
 class App extends React.Component {
   constructor(props) {
@@ -96,7 +98,7 @@ class App extends React.Component {
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <h1>Rick and Morty</h1>
+            <Header />
             <Filters handleInputValue={this.handleInputValue}
               value={value}
             />
