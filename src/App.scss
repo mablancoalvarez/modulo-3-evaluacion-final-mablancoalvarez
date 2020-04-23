@@ -1,5 +1,12 @@
+@import './stylesheets/base/reset.scss';
+
+
 .App {
   text-align: center;
+  
 }
 
+.hidden {
+  display: none;
+}
 

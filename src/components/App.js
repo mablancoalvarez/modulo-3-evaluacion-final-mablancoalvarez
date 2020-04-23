@@ -13,7 +13,8 @@ class App extends React.Component {
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
     this.state = {
       data: [],
-      value: ''
+      value: '',
+      isFound :true
     }
   }
 
@@ -25,7 +26,6 @@ class App extends React.Component {
         value: datavalue
       })
     }
-
     fetchData()
       .then(data => {
         this.setState({
@@ -42,8 +42,30 @@ class App extends React.Component {
     this.setState({
       value: inputValue
     })
+    this.foundItem(inputValue)
+  
   }
 
+  foundItem(inputValue){
+    const characters = this.state.data;
+    let found = false;
+    for (let character of characters){
+      if(character.name.toLowerCase().includes(inputValue.toLowerCase()) || inputValue === ''){
+        found = true;
+        break;
+      } 
+    }
+    if (found) {
+      this.setState({
+        isFound: true
+      })
+    } else {
+      this.setState({
+        isFound: false
+      })
+    }
+  }
+    
   renderCharacterDetail(props) {
     console.log(props)
     const routeId = props.match.params.id;
@@ -51,25 +73,29 @@ class App extends React.Component {
     for (let character of characters) {
       if (character.id === parseInt(routeId)) {
         return <CharacterDetails charactObj={character} />
-      }
+      } 
 
     }
 
   }
 
   render() {
+    const {data,value,isFound} = this.state
 
     return (
+      
       <div className="App">
         <Switch>
           <Route exact path="/">
             <h1>Rick and Morty</h1>
             <Filters handleInputValue={this.handleInputValue}
-             value={this.state.value}
+             value={value}
             />
+            <span className={isFound === true ? 'hidden' : '' }>No hay resultados para {value}</span>
             <CharacterList
-              data={this.state.data}
-              inputValue={this.state.value}
+            
+              data={data}
+              inputValue={value}
 
             />
           </Route>

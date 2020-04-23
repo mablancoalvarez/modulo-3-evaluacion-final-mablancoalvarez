@@ -3,6 +3,7 @@ import React from 'react';
 const Filters = (props) => {
 
     const updateInputValue = (evt) => {
+        evt.preventDefault();
         props.handleInputValue(evt.currentTarget.value)
     }
     return (

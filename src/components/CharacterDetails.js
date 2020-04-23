@@ -10,6 +10,7 @@ const CharacterDetails = (props) => {
             <div className="character-details_text">
                 <h2>{props.charactObj.name}</h2>
                 <h3>{props.charactObj.species}</h3>
+                <p>{props.charactObj.status}</p>
                 <p>{props.charactObj.origin.name}</p>
                 <p> Episode: {props.charactObj.episode.length}</p>
             </div>
