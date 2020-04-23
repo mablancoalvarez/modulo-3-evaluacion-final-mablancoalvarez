@@ -5,16 +5,18 @@ import CharacterList from './CharacterList';
 import Filters from './Filters';
 import CharacterDetails from './CharacterDetails';
 import { Route, Switch } from 'react-router-dom';
+import ErrorMessage from './ErrorMessage';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.handleInputValue = this.handleInputValue.bind(this);
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
+    this.foundItem = this.foundItem.bind(this);
     this.state = {
       data: [],
       value: '',
-      isFound :true
+      isFound: true
     }
   }
 
@@ -43,17 +45,17 @@ class App extends React.Component {
       value: inputValue
     })
     this.foundItem(inputValue)
-  
+
   }
 
-  foundItem(inputValue){
+  foundItem(inputValue) {
     const characters = this.state.data;
     let found = false;
-    for (let character of characters){
-      if(character.name.toLowerCase().includes(inputValue.toLowerCase()) || inputValue === ''){
+    for (let character of characters) {
+      if (character.name.toLowerCase().includes(inputValue.toLowerCase()) || inputValue === '') {
         found = true;
         break;
-      } 
+      }
     }
     if (found) {
       this.setState({
@@ -65,35 +67,34 @@ class App extends React.Component {
       })
     }
   }
-    
+
   renderCharacterDetail(props) {
     console.log(props)
     const routeId = props.match.params.id;
     const characters = this.state.data;
     for (let character of characters) {
-      if (character.id === parseInt(routeId)) {
+      if (character.id === parseInt(routeId) || parseInt(routeId) < 20) {
         return <CharacterDetails charactObj={character} />
-      } 
-
+      } else {
+        return <ErrorMessage />
+      }
     }
-
   }
 
   render() {
-    const {data,value,isFound} = this.state
+    const { data, value, isFound } = this.state
 
     return (
-      
+
       <div className="App">
         <Switch>
           <Route exact path="/">
             <h1>Rick and Morty</h1>
             <Filters handleInputValue={this.handleInputValue}
-             value={value}
+              value={value}
             />
-            <span className={isFound === true ? 'hidden' : '' }>No hay resultados para {value}</span>
+            <span className={isFound === true ? 'hidden' : ''}>No hay resultados para {value}</span>
             <CharacterList
-            
               data={data}
               inputValue={value}
 

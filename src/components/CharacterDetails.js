@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const CharacterDetails = (props) => {
 
-    console.log(props)
+
     return (
         <div className="character-details">
             <img src={props.charactObj.image} alt={props.charactObj.name} />
@@ -21,5 +21,6 @@ const CharacterDetails = (props) => {
 
     )
 }
+
 
 export default CharacterDetails;
