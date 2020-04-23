@@ -45,7 +45,6 @@ class App extends React.Component {
       value: inputValue
     })
     this.foundItem(inputValue)
-
   }
 
   foundItem(inputValue) {
@@ -72,14 +71,22 @@ class App extends React.Component {
     console.log(props)
     const routeId = props.match.params.id;
     const characters = this.state.data;
+    let found = false;
+    let characterFound;
     for (let character of characters) {
-      if (character.id === parseInt(routeId) || parseInt(routeId) < 20) {
-        return <CharacterDetails charactObj={character} />
-      } else {
-        return <ErrorMessage />
+      if (character.id === parseInt(routeId)) {
+        found = true;
+        characterFound = character;
+        break;
       }
     }
-  }
+    if (found) {
+        return <CharacterDetails charactObj={characterFound} />
+      } else {
+        return <ErrorMessage/>
+      }
+    }
+  
 
   render() {
     const { data, value, isFound } = this.state
@@ -97,7 +104,6 @@ class App extends React.Component {
             <CharacterList
               data={data}
               inputValue={value}
-
             />
           </Route>
           <Route path="/character/:id" render={this.renderCharacterDetail} />
