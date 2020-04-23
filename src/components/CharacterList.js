@@ -4,10 +4,11 @@ import CharacterCard from './CharacterCard';
 
 const CharacterList = (props) => {
     console.log(props)
-
+    // arreglo.sort((unaMascota, otraMascota) => unaMascota.nombre.localeCompare(otraMascota.nombre));
     return (
         <ul className="character-list">
             {props.data
+                .sort((unNombre, otroNombre) => unNombre.name.localeCompare(otroNombre.nombre))
                 .filter(charactObj => props.inputValue === '' || charactObj.name.toLowerCase().includes(props.inputValue.toLowerCase()))
                 .map(charactObj =>
                     <li key={charactObj.id}>
