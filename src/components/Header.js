@@ -6,12 +6,9 @@ const Header = () => {
 
     return (
         <div>
-        <img className = "logo" src= {logo} />
+        <img className = "logo" alt="Logo Rick and Morty" src= {logo}  />
         </div>
     )
 }
-
-
-
 
 export default Header;

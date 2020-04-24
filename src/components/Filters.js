@@ -16,6 +16,7 @@ const Filters = (props) => {
              value={props.value} 
              onChange={updateInputValue} />
         </form>
+        
     );
 }
 

@@ -15,7 +15,7 @@ console.log(props)
                 <h2>{props.charactObj.name}</h2>
                 <ul>
                 
-                <li>{props.charactObj.species}<img className="icons" alt={props.charactObj.species} src={props.charactObj.species === 'Human' ? equal : ufo }></img></li>
+                <li>{props.charactObj.species}<img className="icons" alt={props.charactObj.species} src={props.charactObj.species === 'Human' ? equal :ufo }></img></li>
 
                 <li>{props.charactObj.status}<img className="icons"  alt={props.charactObj.status} src={props.charactObj.status === 'Alive' ? alive :rip}></img></li>
                 <li>{props.charactObj.origin.name} </li>
