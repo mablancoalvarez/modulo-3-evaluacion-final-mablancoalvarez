@@ -100,7 +100,9 @@ class App extends React.Component {
             <Filters handleInputValue={this.handleInputValue}
               value={value}
             />
+            <div className="notfound">
             <span className={isFound === true ? 'hidden' : ''}>No hay resultados para {value}</span>
+            </div>
             <CharacterList
               data={data}
               inputValue={value}

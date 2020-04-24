@@ -19,18 +19,28 @@ html {
   font-weight: 400;
   letter-spacing: 0;
 
-  
 
 .header{
   display:flex;
   align-items: center;
   justify-content: center;
   width: 100%;
+  padding:30px;
+ 
 }
 
 .logo {
   width: 80%;
  
+}
+.subheader{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.sublogo{
+  width: 40%;
 }
 
 
@@ -38,8 +48,6 @@ html {
 li .icons {
   width: 20px;
 }
-
-
 
 
 label {
@@ -63,18 +71,23 @@ label {
   border-radius: 5.7rem;
   background-color: rgb(255, 255, 255);
   border: none;
-  width: 28%;
+  text-align: center;
+    width: 100%;
   display: block;
   border-bottom: 0.3rem solid transparent;
   transition: all 0.3s;
-  margin-bottom: 20px;
-  margin-top: 20px;
+
   .placeholder {
     font-family: "Roboto", sans-serif;
   }
 }
 }
 
+.notfound{
+  text-align: center;
+  margin-top:20px;
+  font-weight: 700;
+}
 
 .character-list {
   display: grid;
@@ -127,32 +140,34 @@ img {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 
-  @media (min-width: 400px) {
+  @media (min-width: 760px) {
     width: 100%;
   }
 }
 .character-details{
-  margin-top:40%
+  margin-top:20%
 }
 .container-details{
-  
   margin-top:40px;
   display: grid;
   grid-gap: 1rem;
   padding: 1rem;
-  max-width: 300px;
-  margin: 0 auto;
+  margin: 30px;
+  // max-width: 300px;
+
   align-items: center;
   border-radius: 20px;
   grid-template-columns: repeat(2, 1fr);
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
   background: linear-gradient(to bottom left, #fbfea1 40%, #ffc39e 100%);
   @media (min-width: 768px) {
-    
-      max-width: 600px;
-      grid-template-columns: repeat(2, 1fr);
-    
+      margin: auto;
+      max-width: 700px;
+   
   }
+}
+img{
+  width: 100%;
 }
 .character-details_text{
   text-align: center;

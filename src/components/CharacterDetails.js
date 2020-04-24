@@ -4,11 +4,14 @@ import ufo from '../images/ufo.png';
 import anatomy from '../images/anatomy.png';
 import alive from '../images/alive.png';
 import rip from '../images/rip.png';
+import Header from '../components/Header';
 
 const CharacterDetails = (props) => {
     console.log(props)
 
     return (
+        <React.Fragment>
+        <Header/>
         <div className="character-details">
             <div className="container-details">
             <div className="character-img">
@@ -31,7 +34,7 @@ const CharacterDetails = (props) => {
                 <button type="button">Volver</button>
             </Link>
         </div>
-
+        </React.Fragment>
     )
 }
 
