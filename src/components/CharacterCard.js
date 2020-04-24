@@ -10,7 +10,7 @@ const CharacterCard = (props) =>{
                 <h2>{props.name}</h2>
                 <h3>{props.specie}</h3>
                 <Link to={`/character/${props.id}`}>
-                <p>+ Info</p>
+                <i className="fas fa-info-circle"></i>
                 </Link>
             </div>
 
