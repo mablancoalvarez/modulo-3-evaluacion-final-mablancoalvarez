@@ -5,6 +5,7 @@ import anatomy from '../images/anatomy.png';
 import alive from '../images/alive.png';
 import rip from '../images/rip.png';
 import Header from '../components/Header';
+import details from '../images/details.png';
 
 const CharacterDetails = (props) => {
     console.log(props)
@@ -31,7 +32,15 @@ const CharacterDetails = (props) => {
             </div>
             
             <Link to='/'>
-                <button type="button">Volver</button>
+                <div className="goback">
+            <img
+            className='character-detail-icon'
+            alt='Volver'
+            src={details}
+          ></img>
+          <p className='character-detail-return'> Go Back </p>
+                {/* <button type="button" src={rick}>Volver</button> */}
+                </div>
             </Link>
         </div>
         </React.Fragment>
