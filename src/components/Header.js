@@ -5,7 +5,7 @@ const Header = () => {
 
 
     return (
-        <div>
+        <div className="header">
         <img className = "logo" alt="Logo Rick and Morty" src= {logo}  />
         </div>
     )

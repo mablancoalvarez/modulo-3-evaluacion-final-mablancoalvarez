@@ -88,8 +88,6 @@ class App extends React.Component {
         return <ErrorMessage/>
       }
     }
-  
-
   render() {
     const { data, value, isFound } = this.state
 
