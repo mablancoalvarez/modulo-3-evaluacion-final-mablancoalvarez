@@ -12,14 +12,17 @@ const Filters = (props) => {
 
     return (
         <div className="container-text__search">
+             
         <form onSubmit={handlePrevent}>
+        <i className="fas fa-search"></i>
              <label htmlFor="text-search"></label>
             <input
              type="text" 
              className="inputsearch" 
              placeholder="Search your favourite"
              value={props.value} 
-             onChange={updateInputValue} />
+             onChange={updateInputValue}
+              />     
         </form>
         </div>
         
