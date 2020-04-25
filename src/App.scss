@@ -46,7 +46,7 @@ html {
 
   label {
     font-family: "Rubik", sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     margin-top: 0.7rem;
     display: block;
   }
@@ -58,11 +58,37 @@ html {
       display: flex;
       justify-content: center;
       align-items: center;
-
+      flex-direction: column;
+      .search {
+        display: flex;
+      }
+      .container-checkbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 16px;
+        .container-human {
+          display: flex;
+          input {
+            margin-top: 15px;
+            margin-left: 5px;
+          }
+        }
+        .container-alien {
+          display: flex;
+          margin-left:10px;
+          input {
+            margin-top: 15px;
+            margin-left: 5px;
+          }
+        }
+      }
       i {
         font-size: 20px;
-        padding: 5px;
+
         color: #02afc7;
+        padding-top: 13px;
+        margin-right: 5px;
       }
       .inputsearch {
         font-family: "Rubik", sans-serif;

@@ -14,11 +14,14 @@ class App extends React.Component {
     super(props);
     this.handleInputValue = this.handleInputValue.bind(this);
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
+    this.handleCheckbox = this.handleCheckbox.bind(this);
     this.foundItem = this.foundItem.bind(this);
     this.state = {
       data: [],
       value: '',
-      isFound: true
+      isFound: true,
+      isHuman:false,
+      isAlien:false
     }
   }
 
@@ -47,6 +50,18 @@ class App extends React.Component {
       value: inputValue
     })
     this.foundItem(inputValue)
+  }
+
+
+
+  handleCheckbox(id){
+
+    this.setState(prevState => {
+      return {
+        isHuman: (id==='Human') ? !prevState.isHuman : prevState.isHuman,
+        isAlien :(id === 'Alien') ? !prevState.isAlien : prevState.isAlien
+      }
+    })
   }
 
   foundItem(inputValue) {
@@ -88,7 +103,7 @@ class App extends React.Component {
     }
   }
   render() {
-    const { data, value, isFound } = this.state
+    const { data, value, isFound,isHuman,isAlien} = this.state
 
     return (
 
@@ -97,7 +112,7 @@ class App extends React.Component {
           <Route exact path="/">
             <Header />
             <Filters handleInputValue={this.handleInputValue}
-              value={value}
+              value={value} isHuman={isHuman} isAlien={isAlien} handleCheckbox={this.handleCheckbox}
             />
             <div className="notfound">
               <span className={isFound === true ? 'hidden' : ''}>No hay resultados para {value}</span>
@@ -105,6 +120,8 @@ class App extends React.Component {
             <CharacterList
               data={data}
               inputValue={value}
+              isHuman={isHuman}
+              isAlien={isAlien} 
             />
           </Route>
           <Route path="/character/:id" render={this.renderCharacterDetail} />
