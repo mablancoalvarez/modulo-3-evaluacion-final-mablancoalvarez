@@ -1,6 +1,29 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Rick and Morty WebSite!
 
-## Available Scripts
+🚀 The objective of this project is to create a web search engine, where through a call to the Rick and Morty API. We can visualize a list of characters and we can also filter by character name, specie (human or alien) and select the character we click on a new route.In addition, through localStorage we can save our data in the browser.
+
+
+## Tools 💻
+- [React]
+- [Saas]
+- [React Router]
+- [API-]-'https://rickandmortyapi.com/api/character'
+- [Visual Studio Code]
+
+
+## Learnings :bulb:
+
+- [Array methods]- (.map,.filter,.sort)
+- [JSX]-Syntax extension to JavaScript.
+- [Handling Events]
+- [LocalStorage]
+- [State and Lifecycle]
+- [React Router]
+- [Lifting State Up]
+- [Components and Props]
+
+
+## How to install it? :point_down:
 
 In the project directory, you can run:
 
@@ -66,3 +89,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+## Creator
+🚀 | Maria Blanco | `'Dip in Leadership'` | [GitHub](https://github.com/mablancoalvarez) 
