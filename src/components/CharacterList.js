@@ -3,8 +3,7 @@ import CharacterCard from './CharacterCard';
 import { Link } from 'react-router-dom';
 
 const CharacterList = (props) => {
-    console.log(props)
-
+    
     return (
         <ul className="character-list">
             {props.data
@@ -29,11 +28,7 @@ const CharacterList = (props) => {
                     </li>
                 )}
         </ul>
-
     )
 }
-
-
-
 
 export default CharacterList;

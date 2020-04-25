@@ -8,7 +8,6 @@ import { Route, Switch } from 'react-router-dom';
 import ErrorMessage from './ErrorMessage';
 import Header from './Header';
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -20,11 +19,10 @@ class App extends React.Component {
       data: [],
       value: '',
       isFound: true,
-      isHuman:false,
-      isAlien:false
+      isHuman: false,
+      isAlien: false
     }
   }
-
   componentDidMount() {
 
     const datavalue = JSON.parse(localStorage.getItem('datavalue'));
@@ -52,14 +50,11 @@ class App extends React.Component {
     this.foundItem(inputValue)
   }
 
-
-
-  handleCheckbox(id){
-
+  handleCheckbox(id) {
     this.setState(prevState => {
       return {
-        isHuman: (id==='Human') ? !prevState.isHuman : prevState.isHuman,
-        isAlien :(id === 'Alien') ? !prevState.isAlien : prevState.isAlien
+        isHuman: (id === 'Human') ? !prevState.isHuman : prevState.isHuman,
+        isAlien: (id === 'Alien') ? !prevState.isAlien : prevState.isAlien
       }
     })
   }
@@ -103,10 +98,9 @@ class App extends React.Component {
     }
   }
   render() {
-    const { data, value, isFound,isHuman,isAlien} = this.state
+    const { data, value, isFound, isHuman, isAlien } = this.state
 
     return (
-
       <div className="App">
         <Switch>
           <Route exact path="/">
@@ -121,7 +115,7 @@ class App extends React.Component {
               data={data}
               inputValue={value}
               isHuman={isHuman}
-              isAlien={isAlien} 
+              isAlien={isAlien}
             />
           </Route>
           <Route path="/character/:id" render={this.renderCharacterDetail} />
