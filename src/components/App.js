@@ -18,7 +18,8 @@ class App extends React.Component {
     this.state = {
       data: [],
       value: '',
-      isFound: true
+      isFound: true,
+      Species:[]
     }
   }
 

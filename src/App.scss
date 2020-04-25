@@ -81,9 +81,9 @@ html {
         // border-bottom: 0.3rem solid transparent;
         transition: all 0.3s;
         &:focus{
-          border: 1px solid #008ABF;
+          border: 1px solid #02afc7;
           transition: 0.35s ease;
-          color: #008ABF;
+          color: #02afc7;
           &::-webkit-input-placeholder{
             transition: opacity 0.45s ease; 
             opacity: 0;
@@ -211,7 +211,11 @@ html {
     background: linear-gradient(to bottom left, #fbfea1 40%, #ffc39e 100%);
     @media (min-width: 768px) {
       margin: auto;
-      max-width: 700px;
+      max-width: 500px;
+    }
+    @media (min-width: 1024px) {
+      margin: auto;
+      max-width: 600px;
     }
   }
   .character-img img{
@@ -237,7 +241,7 @@ html {
     font-size: 0.8rem;
     padding: 2px;
     @media (min-width: 600px) {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
   }
   .goback {
