@@ -19,7 +19,8 @@ class App extends React.Component {
       data: [],
       value: '',
       isFound: true,
-      Species:[]
+      species:[]
+      
     }
   }
 
@@ -90,7 +91,7 @@ class App extends React.Component {
       }
     }
   render() {
-    const { data, value, isFound } = this.state
+    const { data, value, isFound,species } = this.state
 
     return (
 
@@ -99,7 +100,7 @@ class App extends React.Component {
           <Route exact path="/">
             <Header />
             <Filters handleInputValue={this.handleInputValue}
-              value={value}
+              value={value} species={species}
             />
             <div className="notfound">
             <span className={isFound === true ? 'hidden' : ''}>No hay resultados para {value}</span>
