@@ -6,19 +6,20 @@ import alive from '../images/alive.png';
 import rip from '../images/rip.png';
 import Header from '../components/Header';
 import back from '../images/back.png';
+import x from '../images/x.png'
 import PropTypes from 'prop-types';
 
 const CharacterDetails = (props) => {
 
-// const Updateicons = (props) => {
-//     if(props.charactObj.status === 'Alive'){
-//         return alive;
-//     } else if (props.charactObj.status === 'Dead'){
-//         return rip;
-//     } else {
-//         return ufo;
-//     }
-// }
+const Updateicons = () => {
+    if(props.charactObj.status === 'Alive'){
+        return alive;
+    } else if (props.charactObj.status === 'Dead'){
+        return rip;
+    } else {
+        return x;
+    }
+}
     return (
         <React.Fragment>
         <Header/>
@@ -33,8 +34,7 @@ const CharacterDetails = (props) => {
                 <ul className="list">
                     <li>{props.charactObj.species}<img className="icons" alt={props.charactObj.species} src={props.charactObj.species === 'Human' ? anatomy : ufo}></img></li>
 
-                    <li>{props.charactObj.status}<img className="icons" alt={props.charactObj.status} src={props.charactObj.status === 'Alive' ? alive :rip }></img>
-            
+                    <li>{props.charactObj.status}<img className="icons" alt={props.charactObj.status} src={Updateicons()}/>
                     </li>
                     <li>{props.charactObj.origin.name} </li>
                     <li> Episode: {props.charactObj.episode.length}</li>
@@ -49,8 +49,6 @@ const CharacterDetails = (props) => {
             alt='Volver'
             src={back}
           ></img>
-          {/* <p className='character-detail-return'> Go Back </p> */}
-                {/* <button type="button" src={rick}>Volver</button> */}
                 </div>
             </Link>
         </div>

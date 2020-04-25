@@ -7,7 +7,7 @@ import CharacterDetails from './CharacterDetails';
 import { Route, Switch } from 'react-router-dom';
 import ErrorMessage from './ErrorMessage';
 import Header from './Header';
-// import logo from '../images/logo.png';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -18,8 +18,7 @@ class App extends React.Component {
     this.state = {
       data: [],
       value: '',
-      isFound: true,
-      Species:[]
+      isFound: true
     }
   }
 
@@ -71,7 +70,6 @@ class App extends React.Component {
   }
 
   renderCharacterDetail(props) {
-    console.log(props)
     const routeId = props.match.params.id;
     const characters = this.state.data;
     let found = false;
@@ -84,11 +82,11 @@ class App extends React.Component {
       }
     }
     if (found) {
-        return <CharacterDetails charactObj={characterFound} />
-      } else {
-        return <ErrorMessage/>
-      }
+      return <CharacterDetails charactObj={characterFound} />
+    } else {
+      return <ErrorMessage />
     }
+  }
   render() {
     const { data, value, isFound } = this.state
 
@@ -102,7 +100,7 @@ class App extends React.Component {
               value={value}
             />
             <div className="notfound">
-            <span className={isFound === true ? 'hidden' : ''}>No hay resultados para {value}</span>
+              <span className={isFound === true ? 'hidden' : ''}>No hay resultados para {value}</span>
             </div>
             <CharacterList
               data={data}

@@ -9,10 +9,8 @@ const Filters = (props) => {
     const handlePrevent = (evt)=>{
         evt.preventDefault();
     }
-
     return (
         <div className="container-text__search">
-             
         <form onSubmit={handlePrevent}>
         <i className="fas fa-search"></i>
              <label htmlFor="text-search"></label>
@@ -25,7 +23,6 @@ const Filters = (props) => {
               />     
         </form>
         </div>
-        
     );
 }
 Filters.propTypes = {

@@ -13,7 +13,6 @@ const CharacterList = (props) => {
                 else if (characterA.name > characterB.name) return 1;
                 return 0;
               })
-                
                 .filter(charactObj => props.inputValue === '' || charactObj.name.toLowerCase().includes(props.inputValue.toLowerCase()))
                 .map(charactObj =>
                     <li key={charactObj.id}>
