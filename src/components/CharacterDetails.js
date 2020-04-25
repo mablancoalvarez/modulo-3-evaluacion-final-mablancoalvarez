@@ -5,7 +5,7 @@ import anatomy from '../images/anatomy.png';
 import alive from '../images/alive.png';
 import rip from '../images/rip.png';
 import Header from '../components/Header';
-import details from '../images/details.png';
+import back from '../images/back.png';
 import PropTypes from 'prop-types';
 
 const CharacterDetails = (props) => {
@@ -47,9 +47,9 @@ const CharacterDetails = (props) => {
             <img
             className='character-detail-icon'
             alt='Volver'
-            src={details}
+            src={back}
           ></img>
-          <p className='character-detail-return'> Go Back </p>
+          {/* <p className='character-detail-return'> Go Back </p> */}
                 {/* <button type="button" src={rick}>Volver</button> */}
                 </div>
             </Link>

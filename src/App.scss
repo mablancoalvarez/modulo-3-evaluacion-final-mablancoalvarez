@@ -22,6 +22,7 @@ html {
 
   .header {
     display: flex;
+    flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -33,6 +34,10 @@ html {
     @media (min-width: 760px) {
       width: 50%;
     }
+  }
+  .logo-imagen{
+    width: 30%;
+
   }
 
   // Details icons
@@ -209,8 +214,12 @@ html {
       max-width: 700px;
     }
   }
+  .character-img img{
+    border-radius: 20px;
+  }
   img {
     width: 100%;
+    
   }
   .character-details_text {
     text-align: center;
@@ -237,6 +246,6 @@ html {
     justify-content: center;
   }
   .character-detail-icon {
-    width: 80px;
+    width: 38px;
   }
 }
