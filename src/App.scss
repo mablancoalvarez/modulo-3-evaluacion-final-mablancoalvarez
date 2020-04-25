@@ -25,7 +25,10 @@ html {
   }
 
   .logo {
-    width: 50%;
+    width: 80%;
+    @media (min-width: 760px) {
+      width: 50%;
+    }
   }
 
   // Details icons
@@ -84,15 +87,19 @@ html {
     @media (min-width: 760px) {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      grid-row-gap: 15px;
-      margin:20px;
-      // margin-left: 84px;
+      grid-row-gap: 30px;
+      margin-top:50px;
+      margin-left: 10px;
+     
+     
       @media (min-width: 1000px) {
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-row-gap: 40px;
         grid-column-gap: 5px;
-        margin:20px;
-        // margin-left: 67px;
+        margin-top:60px;
+       
+      
+        
       }
     }
 
@@ -109,7 +116,7 @@ html {
       }
 
       h2 {
-        font-size: 1.2rem;
+        font-size: 1rem;
         line-height: 1.7rem;
         color: black;
       }
@@ -163,9 +170,12 @@ html {
   }
   h2 {
     font-size: 1rem;
+    font-weight: 700;
+      color: rgba(37, 161, 142, 0.839373);
     padding: 5px;
     @media (min-width: 600px) {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
+      
     }
   }
   .list li {

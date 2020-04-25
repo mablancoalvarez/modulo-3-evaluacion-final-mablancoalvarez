@@ -6,10 +6,19 @@ import alive from '../images/alive.png';
 import rip from '../images/rip.png';
 import Header from '../components/Header';
 import details from '../images/details.png';
+import PropTypes from 'prop-types';
 
 const CharacterDetails = (props) => {
-    console.log(props)
 
+// const Updateicons = (props) => {
+//     if(props.charactObj.status === 'Alive'){
+//         return alive;
+//     } else if (props.charactObj.status === 'Dead'){
+//         return rip;
+//     } else {
+//         return ufo;
+//     }
+// }
     return (
         <React.Fragment>
         <Header/>
@@ -24,7 +33,9 @@ const CharacterDetails = (props) => {
                 <ul className="list">
                     <li>{props.charactObj.species}<img className="icons" alt={props.charactObj.species} src={props.charactObj.species === 'Human' ? anatomy : ufo}></img></li>
 
-                    <li>{props.charactObj.status}<img className="icons" alt={props.charactObj.status} src={props.charactObj.status === 'Alive' ? alive : rip}></img></li>
+                    <li>{props.charactObj.status}<img className="icons" alt={props.charactObj.status} src={props.charactObj.status === 'Alive' ? alive :rip }></img>
+            
+                    </li>
                     <li>{props.charactObj.origin.name} </li>
                     <li> Episode: {props.charactObj.episode.length}</li>
                 </ul>
@@ -46,6 +57,8 @@ const CharacterDetails = (props) => {
         </React.Fragment>
     )
 }
-
+CharacterDetails.propTypes = {
+    charactObj: PropTypes.object
+};
 
 export default CharacterDetails;
