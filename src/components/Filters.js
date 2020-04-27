@@ -6,11 +6,17 @@ const Filters = (props) => {
     const updateInputValue = (evt) => {
         props.handleInputValue(evt.currentTarget.value)
     }
+    const updateInputEpisode = (evt) => {
+        props.handleInputEpisode(evt.currentTarget.value)
+    }
     const handlePrevent = (evt) => {
         evt.preventDefault();
     }
     const updateCheckbox = (evt) => {
         props.handleCheckbox(evt.currentTarget.id);
+    }
+    const updateInputLocation = (evt)=>{
+        props.handleInputLocation(evt.currentTarget.value)
     }
     return (
         <div className="container-text__search">
@@ -25,6 +31,17 @@ const Filters = (props) => {
                         value={props.value}
                         onChange={updateInputValue}
                     />
+                    <input type="number"
+                        className="inputsearch"
+                        placeholder="Search your episode"
+                        value={props.episode}
+                        onChange={updateInputEpisode} />
+
+                    <input type="text"
+                        className="inputsearch"
+                        placeholder="Search your location"
+                        value={props.valuelocation}
+                        onChange={updateInputLocation}/>
                 </div>
                 <div className="container-checkbox">
                     <div className="container-human">

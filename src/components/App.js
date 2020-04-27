@@ -15,12 +15,16 @@ class App extends React.Component {
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
     this.handleCheckbox = this.handleCheckbox.bind(this);
     this.foundItem = this.foundItem.bind(this);
+    this.handleInputEpisode =this.handleInputEpisode.bind(this);
+    this.handleInputLocation=this.handleInputLocation.bind(this)
     this.state = {
       data: [],
       value: '',
       isFound: true,
       isHuman: false,
-      isAlien: false
+      isAlien: false,
+      episode: '',
+      location:''
     }
   }
   componentDidMount() {
@@ -43,6 +47,19 @@ class App extends React.Component {
     localStorage.setItem('datavalue', JSON.stringify(this.state.value));
 
   }
+
+
+  handleInputEpisode(valuenumber){
+    this.setState({
+      episode: valuenumber
+    })
+  }
+
+  handleInputLocation (valuelocation){
+    this.setState({
+      location: valuelocation
+    })
+  }
   handleInputValue(inputValue) {
     this.setState({
       value: inputValue
@@ -53,7 +70,7 @@ class App extends React.Component {
   handleCheckbox(id) {
     this.setState(prevState => {
       return {
-        isHuman: (id === 'Human') ? !prevState.isHuman : prevState.isHuman,
+        isHuman: (id === 'Human') ? !prevState.isHuman : prevState.isHuman, 
         isAlien: (id === 'Alien') ? !prevState.isAlien : prevState.isAlien
       }
     })
@@ -98,7 +115,7 @@ class App extends React.Component {
     }
   }
   render() {
-    const { data, value, isFound, isHuman, isAlien } = this.state
+    const { data, value, isFound, isHuman, isAlien, episode,location} = this.state
 
     return (
       <div className="App">
@@ -106,7 +123,10 @@ class App extends React.Component {
           <Route exact path="/">
             <Header />
             <Filters handleInputValue={this.handleInputValue}
-              value={value} isHuman={isHuman} isAlien={isAlien} handleCheckbox={this.handleCheckbox}
+              isHuman={isHuman} isAlien={isAlien} handleCheckbox={this.handleCheckbox} handleInputEpisode={this.handleInputEpisode}  handleInputLocation={this.handleInputLocation} 
+              // value={value}
+              // episode={episode}
+              // valuelocation={location}
             />
             <div className="notfound">
               <span className={isFound === true ? 'hidden' : ''}>No hay resultados para {value}</span>
@@ -116,6 +136,8 @@ class App extends React.Component {
               inputValue={value}
               isHuman={isHuman}
               isAlien={isAlien}
+              inputNumber={episode}
+              inputLocation={location}
             />
           </Route>
           <Route path="/character/:id" render={this.renderCharacterDetail} />
