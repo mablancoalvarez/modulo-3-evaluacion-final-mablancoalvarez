@@ -15,8 +15,9 @@ class App extends React.Component {
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
     this.handleCheckbox = this.handleCheckbox.bind(this);
     this.foundItem = this.foundItem.bind(this);
-    this.handleInputEpisode =this.handleInputEpisode.bind(this);
-    this.handleInputLocation=this.handleInputLocation.bind(this)
+    this.handleInputEpisode = this.handleInputEpisode.bind(this);
+    this.handleInputLocation = this.handleInputLocation.bind(this)
+    this.handleAlive = this.handleAlive.bind(this)
     this.state = {
       data: [],
       value: '',
@@ -24,15 +25,23 @@ class App extends React.Component {
       isHuman: false,
       isAlien: false,
       episode: '',
-      location:''
+      location: '',
+      isAlive: false
     }
   }
   componentDidMount() {
 
     const datavalue = JSON.parse(localStorage.getItem('datavalue'));
+    const dataalive = JSON.parse(localStorage.getItem('dataalive'));
     if (datavalue !== null) {
       this.setState({
         value: datavalue
+      })
+    }
+ 
+    if (dataalive !== null){
+      this.setState({
+        isAlive : dataalive
       })
     }
     fetchData()
@@ -45,17 +54,19 @@ class App extends React.Component {
 
   componentDidUpdate() {
     localStorage.setItem('datavalue', JSON.stringify(this.state.value));
+    localStorage.setItem('dataalive', JSON.stringify(this.state.isAlive));
+
 
   }
 
 
-  handleInputEpisode(valuenumber){
+  handleInputEpisode(valuenumber) {
     this.setState({
       episode: valuenumber
     })
   }
 
-  handleInputLocation (valuelocation){
+  handleInputLocation(valuelocation) {
     this.setState({
       location: valuelocation
     })
@@ -66,12 +77,20 @@ class App extends React.Component {
     })
     this.foundItem(inputValue)
   }
+  handleAlive() {
+    this.setState(prevState => {
+      return {
+        isAlive: !prevState.isAlive
+      }
 
+    })
+  }
   handleCheckbox(id) {
     this.setState(prevState => {
       return {
-        isHuman: (id === 'Human') ? !prevState.isHuman : prevState.isHuman, 
-        isAlien: (id === 'Alien') ? !prevState.isAlien : prevState.isAlien
+        isHuman: (id === 'Human') ? !prevState.isHuman : prevState.isHuman,
+        isAlien: (id === 'Alien') ? !prevState.isAlien : prevState.isAlien,
+        isAlive: (id === 'Alive') ? !prevState.isAlive : prevState.isAlive
       }
     })
   }
@@ -115,7 +134,7 @@ class App extends React.Component {
     }
   }
   render() {
-    const { data, value, isFound, isHuman, isAlien, episode,location} = this.state
+    const { data, value, isFound, isHuman, isAlien, episode, location, isAlive } = this.state
 
     return (
       <div className="App">
@@ -123,10 +142,11 @@ class App extends React.Component {
           <Route exact path="/">
             <Header />
             <Filters handleInputValue={this.handleInputValue}
-              isHuman={isHuman} isAlien={isAlien} handleCheckbox={this.handleCheckbox} handleInputEpisode={this.handleInputEpisode}  handleInputLocation={this.handleInputLocation} 
-              // value={value}
-              // episode={episode}
-              // valuelocation={location}
+              isHuman={isHuman} isAlien={isAlien} handleCheckbox={this.handleCheckbox} handleInputEpisode={this.handleInputEpisode} handleInputLocation={this.handleInputLocation} handleAlive={this.handleAlive}
+            value={value}
+            isAlive={isAlive}
+            // episode={episode}
+            // valuelocation={location}
             />
             <div className="notfound">
               <span className={isFound === true ? 'hidden' : ''}>No hay resultados para {value}</span>
@@ -138,6 +158,7 @@ class App extends React.Component {
               isAlien={isAlien}
               inputNumber={episode}
               inputLocation={location}
+              isAlive={isAlive}
             />
           </Route>
           <Route path="/character/:id" render={this.renderCharacterDetail} />

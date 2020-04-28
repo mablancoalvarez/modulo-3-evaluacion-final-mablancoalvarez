@@ -18,6 +18,10 @@ const Filters = (props) => {
     const updateInputLocation = (evt)=>{
         props.handleInputLocation(evt.currentTarget.value)
     }
+
+     const updateAlive = () =>{
+         props.handleAlive()
+     }
     return (
         <div className="container-text__search">
             <form onSubmit={handlePrevent}>
@@ -40,7 +44,7 @@ const Filters = (props) => {
                     <input type="text"
                         className="inputsearch"
                         placeholder="Search your location"
-                        value={props.valuelocation}
+                        value={props.location}
                         onChange={updateInputLocation}/>
                 </div>
                 <div className="container-checkbox">
@@ -52,6 +56,11 @@ const Filters = (props) => {
                         <label htmlFor="alien">Alien</label>
                         <input onChange={updateCheckbox} type="checkbox" id="Alien" name="Alien" value="Alien" checked={props.isAlien} />
                     </div>
+                    <div className="container-alive">
+                        <label htmlFor="alien">Alive</label>
+                        <input onChange={updateAlive} type="checkbox" id="Alive" name="Alien" value="Alien" checked={props.isAlive} />
+                    </div>
+
                 </div>
             </form>
 

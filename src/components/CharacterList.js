@@ -3,7 +3,7 @@ import CharacterCard from './CharacterCard';
 import { Link } from 'react-router-dom';
 
 const CharacterList = (props) => {
-    console.log(props)
+   
     return (
         <ul className="character-list">
             {props.data
@@ -15,6 +15,7 @@ const CharacterList = (props) => {
 
                 .filter(charactObj => !props.isAlien || (props.isAlien && charactObj.species === 'Alien'))
                 .filter(charactObj => !props.isHuman || (props.isHuman && charactObj.species === 'Human'))
+                .filter (charactObj => !props.isAlive || (props.isAlive && charactObj.status === 'Alive'))
                 .filter(charactObj => props.inputNumber === '' || charactObj.episode.length === parseInt(props.inputNumber) )
                 .filter(charactObj => props.inputLocation === '' || charactObj.location.name.toLowerCase().includes(props.inputLocation.toLowerCase()))
                 .filter(charactObj => props.inputValue === '' || charactObj.name.toLowerCase().includes(props.inputValue.toLowerCase()))
