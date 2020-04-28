@@ -90,7 +90,7 @@ class App extends React.Component {
       return {
         isHuman: (id === 'Human') ? !prevState.isHuman : prevState.isHuman,
         isAlien: (id === 'Alien') ? !prevState.isAlien : prevState.isAlien,
-        isAlive: (id === 'Alive') ? !prevState.isAlive : prevState.isAlive
+        
       }
     })
   }
